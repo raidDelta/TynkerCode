@@ -1,0 +1,141 @@
+// Sets up Variable
+var i = 0;
+
+while(i <= 10) // While i is less than or equal to 10,
+{
+  i++; // i will increment +1.
+  if( i % 2 == 0) // if i % 2 is equal to 0,
+  {
+    console.log("You've reached an even number: " + i); // Prints even number (i) til we get to 10. 
+  }
+}
+
+// Lesson 2 - Detect a Path!
+while (hasPathAhead()) {
+forward();
+}
+
+// Lesson 3 - Forward, Left
+// while not reached goal
+// go forward while there is a path in front
+while (hasPathAhead()) {
+    forward();
+    // check if there is a path to the left and turn left
+    if(hasPathLeft()){
+        turnLeft();
+    }
+}
+
+// Lesson 4 - Right, Forward
+// while not reached goal
+while (!reachedGoal()) {
+    // if path exists to the right
+    // then turn right
+    if(hasPathRight()){
+        turnRight();
+    }
+    // go forward every loop iteration
+    forward();
+}
+
+// Lesson 5 - What Is a Do-While Loop?
+// "while" loop checks condition at the top
+console.log("while loop");
+var i = 1;
+while (i <= 1) { // Changes less than to less than or equal to.
+    console.log(i);
+    i++;
+}
+console.log();
+// "do-while" loop checks condition at the bottom
+console.log("do-while loop");
+var i = 1;
+do {
+    console.log(i);
+    i++;
+} while (i < 1);
+
+// Lesson 6 - Path Ahead?
+// do while there is a path ahead
+var i = 0;
+do {
+    // go forward
+    forward();
+    i++;
+    // jump if there is an obtacle
+    if(isObstacle()){
+        jump();
+        i++;
+    }
+} while (i<=4); // While i is less than or equal to 4
+
+// Lesson 7 - Left Spiral
+while(!reachedGoal()){ // While you have not reached the goal
+    if(isObstacle()){ // If there is an Obstacle, the sprite will jump.
+        jump();
+    }
+    else if(hasPathAhead()){ // Else if there is a path ahead, it will move forward
+        forward();
+    }
+    else if(!hasPathAhead()){ // Else if there is NOT a path ahead, it wll turn LEFT
+        turnLeft();
+    }    
+}
+
+// Lesson 8 - Right Spiral
+while(!reachedGoal()){ // While you have not reached the goal
+    if(isObstacle()){ // If there is an Obstacle, the sprite will jump.
+        jump();
+    }
+    else if(hasPathAhead()){ // Else if there is a path ahead, it will move forward
+        forward();
+    }
+    else if(!hasPathAhead()){ // Else if there is NOT a path ahead, it wll turn RIGHT
+        turnRight();
+    }    
+}
+
+// Lesson 9 - Choose a Path
+for(i=0;i<=3;i++){ // First loop to reach the right lane.
+    forward();
+}
+
+turnLeft();
+
+for(j=0;j<=6;j++){ // Goes down lane
+    if(isObstacle()){
+        j+=2;
+        jump();
+    }
+    forward();
+}
+
+turnRight();
+
+while(!reachedGoal()){ // Moves to goal. 
+    forward();
+    if(isObstacle()){
+        jump();
+    }
+}
+
+// lesson 11 - Quiz
+/*
+1.) 
+while (!isObstacle()){
+	forward();
+}
+2.) There is a redundant check of the condition
+3.) Print out the numbers 0-9
+4.) Print "Hello" infinitely
+5.) False
+6.) It won't output anything
+7.) If you don't know exactly how many iterations you want to perform
+8.) A "While" loop checks the condiiton at the beginning of each loop, but a "do-while" loop checks the condition at the end of each loop
+9.) True
+10.) When you want to run a loop at least once no matter what
+11.) 3
+12.) True
+13.) 1
+
+*/
